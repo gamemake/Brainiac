@@ -1,36 +1,34 @@
-﻿using UnityEngine;
-
-namespace Brainiac
+﻿namespace Brainiac
 {
-	[AddNodeMenu("Decorator/Invert")]
-	public class Invert : Decorator
-	{
-		public override string Title
-		{
-			get
-			{
-				return "Invert";
-			}
-		}
+    [AddNodeMenu("Decorator/Invert")]
+    public class Invert : Decorator
+    {
+        public override string Title
+        {
+            get
+            {
+                return "Invert";
+            }
+        }
 
-		protected override BehaviourNodeStatus OnExecute(AIAgent agent)
-		{
-			BehaviourNodeStatus status = BehaviourNodeStatus.Success;
+        protected override BehaviourNodeStatus OnExecute(AIAgent agent)
+        {
+            BehaviourNodeStatus status = BehaviourNodeStatus.Success;
 
-			if(m_child != null)
-			{
-				status = m_child.Run(agent);
-				if(status == BehaviourNodeStatus.Success)
-				{
-					status = BehaviourNodeStatus.Failure;
-				}
-				else if(status == BehaviourNodeStatus.Failure)
-				{
-					status = BehaviourNodeStatus.Success;
-				}
-			}
+            if (m_child != null)
+            {
+                status = m_child.Run(agent);
+                if (status == BehaviourNodeStatus.Success)
+                {
+                    status = BehaviourNodeStatus.Failure;
+                }
+                else if (status == BehaviourNodeStatus.Failure)
+                {
+                    status = BehaviourNodeStatus.Success;
+                }
+            }
 
-			return status;
-		}
-	}
+            return status;
+        }
+    }
 }

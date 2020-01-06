@@ -1,9 +1,6 @@
-using System;
-using UnityEngine;
-
 namespace Brainiac
 {
-	public abstract class Action : BehaviourNode
-	{
-	}
+    public abstract class Action : BehaviourNode
+    {
+    }
 }

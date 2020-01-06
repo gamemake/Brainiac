@@ -1,8 +1,8 @@
 ﻿
 namespace BrainiacEditor
 {
-	public enum BTEditorTreeLayout
-	{
-		Free = 0, Horizontal, Vertical
-	}
+    public enum BTEditorTreeLayout
+    {
+        Free = 0, Horizontal, Vertical
+    }
 }

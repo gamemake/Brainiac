@@ -1,8 +1,8 @@
 ﻿
 namespace Brainiac
 {
-	public enum ReferenceComparison
-	{
-		IsNull, IsNotNull
-	}
+    public enum ReferenceComparison
+    {
+        IsNull, IsNotNull
+    }
 }

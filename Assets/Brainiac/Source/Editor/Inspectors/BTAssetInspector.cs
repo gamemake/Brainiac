@@ -1,18 +1,18 @@
-﻿using UnityEngine;
+﻿using Brainiac;
 using UnityEditor;
-using Brainiac;
+using UnityEngine;
 
 namespace BrainiacEditor
 {
-	[CustomEditor(typeof(BTAsset))]
-	public class BTAssetInspector : Editor
-	{
-		public override void OnInspectorGUI()
-		{
-			if(GUILayout.Button("Open In Editor", GUILayout.Height(24.0f)))
-			{
-				BehaviourTreeEditor.Open(target as BTAsset);
-			}
-		}
-	}
+    [CustomEditor(typeof(BTAsset))]
+    public class BTAssetInspector : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            if (GUILayout.Button("Open In Editor", GUILayout.Height(24.0f)))
+            {
+                BehaviourTreeEditor.Open(target as BTAsset);
+            }
+        }
+    }
 }

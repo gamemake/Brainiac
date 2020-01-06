@@ -1,8 +1,8 @@
 ﻿
 namespace Brainiac
 {
-	public enum UpdateMode
-	{
-		EveryFrame = 0, AtInterval, Manual
-	}
+    public enum UpdateMode
+    {
+        EveryFrame = 0, AtInterval, Manual
+    }
 }

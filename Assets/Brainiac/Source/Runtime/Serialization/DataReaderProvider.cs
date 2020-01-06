@@ -34,69 +34,68 @@ using System.Collections.Generic;
 #if WINDOWS_STORE
 using TP = System.Reflection.TypeInfo;
 #else
-using TP = System.Type;
 #endif
 
 namespace Brainiac.Serialization
 {
 
-	public interface IDataReaderProvider
-	{
-		IDataReader Find(string contentTypeHeader);
-	}
+    public interface IDataReaderProvider
+    {
+        IDataReader Find(string contentTypeHeader);
+    }
 
-	/// <summary>
-	/// Provides lookup capabilities for finding an IDataReader
-	/// </summary>
-	public class DataReaderProvider : IDataReaderProvider
-	{
-		#region Fields
+    /// <summary>
+    /// Provides lookup capabilities for finding an IDataReader
+    /// </summary>
+    public class DataReaderProvider : IDataReaderProvider
+    {
+        #region Fields
 
-		private readonly IDictionary<string, IDataReader> ReadersByMime = new Dictionary<string, IDataReader>(StringComparer.OrdinalIgnoreCase);
+        private readonly IDictionary<string, IDataReader> ReadersByMime = new Dictionary<string, IDataReader>(StringComparer.OrdinalIgnoreCase);
 
-		#endregion Fields
+        #endregion Fields
 
-		#region Init
+        #region Init
 
-		/// <summary>
-		/// Ctor
-		/// </summary>
-		/// <param name="readers">inject with all possible readers</param>
-		public DataReaderProvider(IEnumerable<IDataReader> readers)
-		{
-			if (readers != null)
-			{
-				foreach (IDataReader reader in readers)
-				{
-					if (!String.IsNullOrEmpty(reader.ContentType))
-					{
-						this.ReadersByMime[reader.ContentType] = reader;
-					}
-				}
-			}
-		}
+        /// <summary>
+        /// Ctor
+        /// </summary>
+        /// <param name="readers">inject with all possible readers</param>
+        public DataReaderProvider(IEnumerable<IDataReader> readers)
+        {
+            if (readers != null)
+            {
+                foreach (IDataReader reader in readers)
+                {
+                    if (!String.IsNullOrEmpty(reader.ContentType))
+                    {
+                        this.ReadersByMime[reader.ContentType] = reader;
+                    }
+                }
+            }
+        }
 
-		#endregion Init
+        #endregion Init
 
-		#region Methods
+        #region Methods
 
-		/// <summary>
-		/// Finds an IDataReader by content-type header
-		/// </summary>
-		/// <param name="contentTypeHeader"></param>
-		/// <returns></returns>
-		public IDataReader Find(string contentTypeHeader)
-		{
-			string type = DataWriterProvider.ParseMediaType(contentTypeHeader);
+        /// <summary>
+        /// Finds an IDataReader by content-type header
+        /// </summary>
+        /// <param name="contentTypeHeader"></param>
+        /// <returns></returns>
+        public IDataReader Find(string contentTypeHeader)
+        {
+            string type = DataWriterProvider.ParseMediaType(contentTypeHeader);
 
-			if (this.ReadersByMime.ContainsKey(type))
-			{
-				return ReadersByMime[type];
-			}
+            if (this.ReadersByMime.ContainsKey(type))
+            {
+                return ReadersByMime[type];
+            }
 
-			return null;
-		}
+            return null;
+        }
 
-		#endregion Methods
-	}
+        #endregion Methods
+    }
 }

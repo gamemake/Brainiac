@@ -30,42 +30,40 @@
 
 using System;
 using System.IO;
-using System.Text;
 
 #if WINDOWS_STORE
 using TP = System.Reflection.TypeInfo;
 #else
-using TP = System.Type;
 #endif
 
 namespace Brainiac.Serialization
 {
-	/// <summary>
-	/// A common interface for data deserializers
-	/// </summary>
-	public interface IDataReader
-	{
-		#region Properties
+    /// <summary>
+    /// A common interface for data deserializers
+    /// </summary>
+    public interface IDataReader
+    {
+        #region Properties
 
-		/// <summary>
-		/// Gets the content type of the serialized data
-		/// </summary>
-		string ContentType
-		{
-			get;
-		}
+        /// <summary>
+        /// Gets the content type of the serialized data
+        /// </summary>
+        string ContentType
+        {
+            get;
+        }
 
-		#endregion Properties
+        #endregion Properties
 
-		#region Methods
+        #region Methods
 
-		/// <summary>
-		/// Serializes the data to the given output
-		/// </summary>
-		/// <param name="input"></param>
-		/// <param name="data"></param>
-		object Deserialize(TextReader input, Type data);
+        /// <summary>
+        /// Serializes the data to the given output
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="data"></param>
+        object Deserialize(TextReader input, Type data);
 
-		#endregion Methods
-	}
+        #endregion Methods
+    }
 }

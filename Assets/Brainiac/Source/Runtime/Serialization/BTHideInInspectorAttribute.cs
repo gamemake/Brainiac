@@ -2,7 +2,7 @@
 
 namespace Brainiac.Serialization
 {
-	public class BTHideInInspectorAttribute : Attribute
-	{
-	}
+    public class BTHideInInspectorAttribute : Attribute
+    {
+    }
 }

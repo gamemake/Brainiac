@@ -1,8 +1,8 @@
 ﻿
 namespace BrainiacEditor
 {
-	public interface IBlackboardInspector
-	{
-		void DrawGUI();
-	}
+    public interface IBlackboardInspector
+    {
+        void DrawGUI();
+    }
 }

@@ -1,8 +1,8 @@
 ﻿
 namespace Brainiac
 {
-	public enum BooleanComparison
-	{
-		IsTrue, IsFalse
-	}
+    public enum BooleanComparison
+    {
+        IsTrue, IsFalse
+    }
 }
